@@ -93,7 +93,7 @@ fun <A> fooTC(with Reified<A>): Klass<A> { .... A.selfClass ... }
 
 This allows us to obtain generics info without the need to declare the functions `inline` or `reified` overcoming the current limitations of inline reified functions that can't be invoked unless made concrete from non reified contexts.
 
-Not this does not remove the need to use `inline reified` where one tries to instrospect generic type information at runtime with reflection. This particular case is only relevant for those cases where you know the types you want `Reified` ahead of time and you need to access to their class value.
+Note this does not remove the need to use `inline reified` where one tries to instrospect generic type information at runtime with reflection. This particular case is only relevant for those cases where you know the types you want `Reified` ahead of time and you need to access to their class value.
 
 ```kotlin
 extension class Foo<A> {
@@ -181,7 +181,7 @@ fun <A> add(a: A, b: A, with Monoid<A>): A = a.combine(b) // function position u
 
 ## Type Class Instance Rules
 
-Classical interfaces only allow the implementation of interfaces to occur when a type is defined. Type classes typically relax this rule and allow implementations outside of the type definition. When relaxinng this rule it is important to preserve the coherency we take for granted with classical interfaces.
+Classical interfaces only allow the implementation of interfaces to occur when a type is defined. Type classes typically relax this rule and allow implementations outside of the type definition. When relaxing this rule it is important to preserve the coherency we take for granted with classical interfaces.
 
 For those reasons type class instances must be declared in one of two places:
 
